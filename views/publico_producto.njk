@@ -1,0 +1,51 @@
+{% extends "publico_base.njk" %}
+
+{% block titulo %}Detalles del producto{% endblock %}
+
+{% block contenido %}
+    <div class="container">
+        <h2>Detalles del producto</h2>
+        <div class="panel panel-default row mt-4">
+            <div class="panel-heading col-md-5 col-lg-4">
+                {% if producto.imagen !== "" %}
+                    <img src="/public/uploads/{{ producto.imagen }}" alt="Imagen del producto" class="img-thumbnail" />
+                {% endif %}
+            </div>
+            <div class="panel-body col-md-7 col-lg-8">
+                <h3>{{ producto.nombre }}</h3>
+                <p>Precio: {{ producto.precio }} €</p>
+                <p>Descripción: {{ producto.descripcion }}</p>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12"><h3>Comentarios</h2></div>
+            <table class="table table-hover col-sm-12">
+                {% if producto.comentarios == "" %}
+                    <p><i>Todavía no hay comentarios.</i></p>
+                {% else %}
+                    {% for comentario in producto.comentarios %}
+                        <tr>
+                            <td><img src="/public/uploads/userThumbnail.png" /></td>
+                            <td>{{ comentario.usuario }}</td>
+                            <td>{{ comentario.comentario }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </table>
+            <div style="width: 400px;">
+                <h4>Escribe un comentario</h4>
+                <form action="/comentarios/{{ producto.id }}" method="post">
+                    <div class="form-group mt-4">
+                        <label for="usuario">Usuario</label>
+                        <input type="text" name="usuario" class="form-control" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label for="comentario">Comentario</label>
+                        <input type="text" name="comentario" class="form-control" required="required" />
+                    </div>
+                    <button type="submit" class="btn btn-warning">Enviar comentario</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

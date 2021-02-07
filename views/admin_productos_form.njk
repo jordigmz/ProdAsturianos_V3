@@ -1,0 +1,11 @@
+{% extends "admin_base.njk" %}
+
+{% block titulo %}Producto{% endblock %}
+
+{% block contenido %}
+    {% if (producto) %}
+        {% include "editar_producto.njk" %}
+    {% else %}
+        {% include "nuevo_producto.njk" %}
+    {% endif %}
+{% endblock %}

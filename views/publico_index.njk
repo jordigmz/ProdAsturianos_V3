@@ -1,0 +1,26 @@
+{% extends "publico_base.njk" %}
+
+{% block titulo %}Buscar productos{% endblock %}
+
+{% block contenido %}
+    <form action="/buscar" method="get">
+        <div class="input-group mb-3">
+            <input type="search" name="buscar" class="form-control" placeholder="¿Qué producto estás buscando?" aria-label="¿Qué producto estás buscando?" aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button" id="button-addon2">Buscar</button>
+            </div>
+        </div>
+    </form>
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+    
+    <table class="table table-hover">
+        {% for producto in productos %}
+            <tr>
+                <td><a href="/producto/{{ producto.id }}">{{ producto.nombre }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+

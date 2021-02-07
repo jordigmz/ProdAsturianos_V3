@@ -1,0 +1,23 @@
+{% extends "admin_base.njk" %}
+
+{% block titulo %}Productos{% endblock %}
+
+{% block contenido %}
+    <h2>Productos</h2>
+    <table class="mostrarProductos mt-4 mb-4">   
+        <h2>{{ producto }}</h2>   
+        {% for producto in productos %}
+            <tr>
+                <td><a href="/producto/{{ producto.id }}">{{ producto.nombre }}</a></td>
+                <td class="opciones">
+                    <a href="/admin/comentarios/{{ producto.id }}" class="btn btn-info">Comentarios</a>
+                    <a href="/admin/editar/{{ producto.id }}" class="btn btn-secondary">Modificar</a>
+                    <form action="/admin/{{ producto.id }}" method="post" style="display: inline;">
+                        <input type="hidden" name="_method" value="delete" />
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

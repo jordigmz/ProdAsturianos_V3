@@ -1,0 +1,57 @@
+.navbar {
+    min-height: 73px;
+    margin-bottom: 3%;
+}
+
+.nav-item {
+    font-size: 18px !important;
+    margin-right: 15px;
+    font-weight: 500 !important;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.btn-outline-success {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    color: green !important;
+}
+
+.btn-outline-danger {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    color: red !important;
+}
+
+.btn-outline-success:hover {
+    color: white !important;
+}
+
+.btn-outline-danger:hover {
+    color: white !important;
+}
+
+.login {
+    max-width: 480px;
+    border: 1px solid #d1d1d1;
+    box-shadow: 1px 1px 2px grey;
+    float: center;
+    margin: auto;
+    padding: 10%;
+    border-radius: 5px;
+}
+
+.productos {
+    display: inline;
+    width: 100%;
+}
+
+.mostrarProductos {
+    width: 100%;
+}
+
+.opciones {
+    float: right;
+}
